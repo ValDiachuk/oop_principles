@@ -1,6 +1,7 @@
 package class_object;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CarTest {
 
@@ -35,7 +36,7 @@ Remove all the cars that has price more than or equal to 20k
         Car mostExpensiveCar = cars.get(0);
 
         for (Car car : cars) {
-            if(car.price > mostExpensiveCar.price) mostExpensiveCar = car;
+            if (car.price > mostExpensiveCar.price) mostExpensiveCar = car;
         }
 
         System.out.println(mostExpensiveCar);
@@ -45,7 +46,7 @@ Remove all the cars that has price more than or equal to 20k
         int count = 0;
 
         for (Car car : cars) {
-            if(car.color.equals("Black")) count++;
+            if (car.color.equals("Black")) count++;
         }
         System.out.println(count);
 
@@ -63,9 +64,26 @@ Remove all the cars that has price more than or equal to 20k
         Expected:
         3
          */
+        int counter = 0;
 
+        for (Car car : cars) {
+            if (car.color.equals("Blue") || car.color.equals("Beige") || car.year == 2023) counter++;
         }
+        System.out.println(counter);
+     /*
+     Iterator<Car> iterator = cars.iterator();
+
+     while(iterator.hasNext()){
+     if(iterator.next().make.equals("Tesla")) iterator.remove();
+     }
+
+     */
+        cars.removeIf(car -> car.make.equals("Tesla"));
+
+        System.out.println(cars.size()); // 3
     }
+}
+
 
 
 
