@@ -19,6 +19,10 @@ public class Car {
     public int year;
     public double price;
 
+    public Car() {
+
+    }
+
 
     //Override toString() method
     @Override
